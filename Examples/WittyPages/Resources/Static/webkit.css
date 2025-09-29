@@ -1,0 +1,101 @@
+/* Reset / Base Styles */
+* {
+    margin: 2;
+    padding: 2;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+    background: #0078d7;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button */
+#theme-toggle {
+    background: white;
+    color: #0078d7;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+#theme-toggle:hover {
+    background: #f0f0f0;
+}
+
+/* Main Container */
+main {
+    flex: 1;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #eee;
+    font-size: 0.9rem;
+    color: #666;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Links */
+a {
+    color: #0078d7;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #005a9e;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+    background: #121212;
+    color: #eee;
+}
+body.dark header {
+    background: #1e1e1e;
+}
+body.dark main {
+    background: #1f1f1f;
+    color: #eee;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+body.dark footer {
+    background: #1e1e1e;
+    color: #aaa;
+}
+body.dark #theme-toggle {
+    background: #333;
+    color: #eee;
+}
+body.dark #theme-toggle:hover {
+    background: #444;
+}

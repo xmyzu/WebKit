@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+      <LangVersion>preview</LangVersion>	  
+      <OutputPath>./bin/nupkg</OutputPath>
+      <PackAsTool>true</PackAsTool>
+      <ToolCommandName>webkit</ToolCommandName>
+      
+      <Authors>Realtin (CodingBoson)</Authors>
+      <Company>BosonWare, Technologies</Company>
+      <Copyright>BosonWare, Technologies</Copyright>
+      <PackageLicense>https://github.com/BosonWare-Technologies/WebKit/LICENSE</PackageLicense>
+
+      <PackageProjectUrl>
+          https://github.com/BosonWare-Technologies/WebKit
+      </PackageProjectUrl>
+      <RepositoryUrl>
+          https://github.com/BosonWare-Technologies/WebKit
+      </RepositoryUrl>
+
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      
+      <Description>
+          WebKit is a lightweight and fast .NET tool for building static websites, blogs, and documentation from Markdown. It works as a cross-platform CLI (dotnet tool) designed for developers who want an easy and flexible site generator.
+
+          With WebKit, you can turn Markdown into HTML, generate static sites, and create modern Jamstack-style projects without complex setups. Perfect for personal blogs, project documentation, and fast content-driven websites.
+
+          Key features:
+
+          * Cross-platform .NET CLI tool (`dotnet tool install`)
+          * Markdown to HTML conversion
+          * Static site and blog generator
+          * Lightweight, fast, and developer-friendly
+          * Ideal for Jamstack workflows and documentation sites
+      </Description>
+
+      <PackageTags>
+          webkit bosonware website site-generator static-site markdown html builder cli dotnet-tool cross-platform jamstack web-development content-generator markdown-to-html documentation-generator static-website blog-engine lightweight fast
+      </PackageTags>
+
+      <Version>1.0.0</Version>
+      <PackageReleaseNotes>
+          Initial Release
+      </PackageReleaseNotes>
+  </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Cocona.Lite" Version="2.2.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\WebKit.Annotations\WebKit.Annotations.csproj" />
+      <ProjectReference Include="..\WebKit.Core\WebKit.Core.csproj" />
+      <ProjectReference Include="..\WebKit.HttpServer\WebKit.HttpServer.csproj" />
+    </ItemGroup>
+    
+</Project>

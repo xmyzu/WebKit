@@ -1,0 +1,8 @@
+{
+	"Properties": {
+		"Name": "WittyPages",
+		"Author": "CodingBoson",
+		// First Define a property in the `webkit.json` the references the Shared html/markdown file.
+		"NavBar": "@Shared/NavBar.html"
+	}
+}

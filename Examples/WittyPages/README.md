@@ -1,0 +1,2 @@
+# WebKit: Default Starter Template
+
