@@ -18,7 +18,7 @@ It transforms simple `.md` pages into clean, responsive websites — with built-
 
 ### Using .NET Tool
 ```bash
-dotnet tool install -g BosonWebKit
+dotnet tool install -g Boson.WebKit
 ```
 
 ---
