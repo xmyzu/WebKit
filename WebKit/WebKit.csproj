@@ -13,7 +13,7 @@
       <Authors>Realtin (CodingBoson)</Authors>
       <Company>BosonWare, Technologies</Company>
       <Copyright>BosonWare, Technologies</Copyright>
-      <PackageLicense>https://github.com/BosonWare-Technologies/WebKit/LICENSE</PackageLicense>
+      <PackageLicenseFile>LICENSE</PackageLicenseFile>
 
       <PackageProjectUrl>
           https://github.com/BosonWare-Technologies/WebKit
@@ -21,6 +21,7 @@
       <RepositoryUrl>
           https://github.com/BosonWare-Technologies/WebKit
       </RepositoryUrl>
+      <PackageId>Boson.WebKit</PackageId>
 
       <PackageReadmeFile>README.md</PackageReadmeFile>
       
@@ -49,7 +50,11 @@
   </PropertyGroup>
     
     <ItemGroup>
-        <None Include="../README.md" Pack="true" PackagePath="\" />
+        <None Include="../README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath="" />
     </ItemGroup>
     
     <ItemGroup>
