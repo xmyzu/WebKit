@@ -337,4 +337,4 @@ Expressions are the **glue of WebKit**:
 
 ## 📜 License
 
-MIT © **BosonWare Technologies**
+GPL-3.0 © **BosonWare Technologies**
