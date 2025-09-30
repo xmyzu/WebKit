@@ -27,4 +27,12 @@ public sealed class BuildCommand
 
         return 0;
     }
+    
+    [Command("rebuild", Description = "Cleans and Rebuilds the static website.")]
+    public static async Task<int> ReBuild(bool debug = false)
+    {
+        CleanCommand.Clean();
+
+        return await Build(debug);
+    }
 }

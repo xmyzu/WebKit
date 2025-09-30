@@ -33,7 +33,7 @@ public sealed class ResourceProvider
             Resources.Add(new Page { FilePath = filePath });
 
         // Handle Static Resources
-        foreach (var filePath in GetFiles(result, ResourcesPath, Paths.StaticFolder))
+        foreach (var filePath in GetFiles(result, ResourcesPath, Paths.StaticFolder, "", SearchOption.AllDirectories))
         {
             var relativePath = Path.GetRelativePath(
                 Path.Combine(ResourcesPath, Paths.StaticFolder), filePath);
@@ -68,7 +68,8 @@ public sealed class ResourceProvider
         Result result,
         string basePath,
         string folder,
-        string searchPattern = "")
+        string searchPattern = "",
+        SearchOption searchOption = SearchOption.TopDirectoryOnly)
     {
         var fullPath = Path.Combine(basePath, folder);
 
@@ -81,7 +82,7 @@ public sealed class ResourceProvider
         if (searchPattern.Contains(';'))
         {
             var allowedExtensions = searchPattern.Split(';', StringSplitOptions.RemoveEmptyEntries);
-            foreach (var file in Directory.EnumerateFiles(fullPath))
+            foreach (var file in Directory.EnumerateFiles(fullPath, "", searchOption))
             {
                 var extension = Path.GetExtension(file);
                 if (allowedExtensions.Any(x =>
@@ -93,7 +94,7 @@ public sealed class ResourceProvider
             yield break;
         }
 
-        foreach (var file in Directory.EnumerateFiles(fullPath))
+        foreach (var file in Directory.EnumerateFiles(fullPath, "", searchOption))
             yield return file;
     }
 }
