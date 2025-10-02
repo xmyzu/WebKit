@@ -2,4 +2,4 @@
 
 dotnet pack -c Release WebKit.csproj
 dotnet tool uninstall Boson.WebKit --global > $NULL
-dotnet tool install --global --add-source ./bin/nupkg Boson.WebKit --version 1.1.0
+dotnet tool install --global --add-source ./bin/nupkg Boson.WebKit --version 1.2.0

@@ -19,7 +19,7 @@ public sealed class ResourceProvider
 
     public LayoutResource Layout { get; private set; } = null!;
 
-    public WebKitJson WebKitJson { get; private set; } = null!;
+    public WebKitConfig WebKitConfig { get; private set; } = null!;
 
     public async Task<Result> ProbeAsync()
     {
@@ -53,15 +53,10 @@ public sealed class ResourceProvider
         Layout = new LayoutResource { FilePath = layoutPath };
         Resources.Add(Layout);
 
-        // Handle webkit.json
-        var webkitPath = Path.Combine(BasePath, Paths.WebKitFile);
-        if (!File.Exists(webkitPath))
-            return result.WithErrors("webkit.json file does not exist");
+        // Handle webkit config
+        WebKitConfig = (await WebKitConfig.TryResolveAsync(BasePath, this, result))!;
 
-        WebKitJson = (await File.ReadAllTextAsync(webkitPath)).FromJson<WebKitJson>();
-        WebKitJson.Properties.ResourceProvider = this;
-
-        return WebKitJson.Validate(result);
+        return result;
     }
 
     private static IEnumerable<string> GetFiles(

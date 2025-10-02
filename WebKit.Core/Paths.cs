@@ -15,5 +15,7 @@ public static class Paths
     
     public const string LayoutFile = "Layout.html";
     
-    public const string WebKitFile = "webkit.json";
+    public const string WebKitXdslFile = "webkit.xdsl";
+    
+    public const string WebKitJsonFile = "webkit.json";
 }

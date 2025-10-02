@@ -23,7 +23,7 @@ public sealed class WebKitBuilder : IWebKitBuilder
 
         if (enableDebugging)
         {
-            resourceProvider.WebKitJson.Properties.Add("Debugger", Scripts.Debugger);
+            resourceProvider.WebKitConfig.Properties.Add("Debugger", Scripts.Debugger);
         }
         
         var renderedPages = new List<RenderedPage>();
@@ -54,7 +54,7 @@ public sealed class WebKitBuilder : IWebKitBuilder
                 var content = await staticResource.LoadTextAsync();
 
                 content = await CommonRenderer.EvalExpressions(content, 
-                    resourceProvider.WebKitJson.Properties.Clone());
+                    resourceProvider.WebKitConfig.Properties.Clone());
                 
                 await FileUtility.Write(destination, content);
                 

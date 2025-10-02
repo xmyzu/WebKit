@@ -11,7 +11,7 @@ public sealed class MarkdownRenderer : IRenderer
         var content = Markdown.ToHtml(await File.ReadAllTextAsync(page.FilePath));
 
         // Clone the properties
-        var properties = provider.WebKitJson.Properties.Clone();
+        var properties = provider.WebKitConfig.Properties.Clone();
 
         var processedContent = await CommonRenderer.EvalExpressions(content, properties);
         

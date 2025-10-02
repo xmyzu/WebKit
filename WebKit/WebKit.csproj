@@ -43,9 +43,10 @@
           webkit bosonware website site-generator static-site markdown html builder cli dotnet-tool cross-platform jamstack web-development content-generator markdown-to-html documentation-generator static-website blog-engine lightweight fast
       </PackageTags>
 
-      <Version>1.1.0</Version>
+      <Version>1.2.0</Version>
       <PackageReleaseNotes>
-          Resolved the "TopDirectoriesOnly" search issue for static resources.
+      Support for XDSL (Extensible Data Structure Language) has been added to improve configuration flexibility and usability:
+        - Compatible with `webkit.xdsl` or `webkit.json`.
       </PackageReleaseNotes>
   </PropertyGroup>
     
