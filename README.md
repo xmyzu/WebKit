@@ -338,3 +338,6 @@ Expressions are the **glue of WebKit**:
 ## 📜 License
 
 GPL-3.0 © **BosonWare Technologies**
+
+## Release Notes:
+[Check the Changelog for more details.](/CHANGELOG.md)
