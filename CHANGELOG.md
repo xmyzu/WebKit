@@ -35,9 +35,32 @@ WebKit 1.2.0 introduces **XDSL** (Extensible Data Structure Language) support, g
 </WebKit>
 ```
 
+
+---
+
+## WebKit 1.3.0 - What's New?
+### Improvements
+- Added conditional properties. Note: Supported only in `webkit.xdsl` configuration files.
+- Improved Markdown to HTML conversion.
+- Enhanced static site generation performance.
+- Added new CLI options for customization.
+- Fixed minor bugs and improved documentation.
+
+### Breaking Changes:
+- Changed default build directory structure.
+- Changed `hot-reload` behavior: now requires `--watch` flag to enable live reloading.
+
+_For more details, join the BosonWare Telegram community: https://t.me/BosonWare_
+
+
+
+---
+
+
+
 # Deutsch
 
-## 🚀 WebKit 1.2.0 – Neuigkeiten
+## 🚀 WebKit 1.2.0 – Was ist neu?
 
 Mit WebKit 1.2.0 kommt die Unterstützung für **XDSL** (Extensible Data Structure Language) und bietet mehr Flexibilität und Benutzerfreundlichkeit bei der Projektkonfiguration.
 
@@ -71,3 +94,18 @@ Mit WebKit 1.2.0 kommt die Unterstützung für **XDSL** (Extensible Data Structu
   </Properties>
 </WebKit>
 ```
+
+## WebKit 1.3.0 – Was ist neu?
+
+### Verbesserungen
+- Bedingte Eigenschaften hinzugefügt. Hinweis: Wird nur in `webkit.xdsl`-Konfigurationsdateien unterstützt.  
+- Verbesserte Markdown-zu-HTML-Konvertierung.  
+- Verbesserte Leistung bei der statischen Seitengenerierung.  
+- Neue CLI-Optionen für mehr Anpassungsmöglichkeiten hinzugefügt.  
+- Kleinere Fehler behoben und Dokumentation verbessert.  
+
+### Breaking Changes:
+- Standardverzeichnisstruktur für Builds geändert.  
+- Verhalten von `hot-reload` geändert: Erfordert jetzt das Flag `--watch`, um Live-Reloading zu aktivieren.  
+
+_Für weitere Details, tritt der BosonWare-Telegram-Community bei: https://t.me/BosonWare_

@@ -3,5 +3,5 @@
 [PublicAPI]
 public interface IWebKitBuilder
 {
-    public Task<Result> BuildAsync(string path, bool enableDebugging);
+    public Task<Result> BuildAsync(string path, bool isDebugBuild);
 }

@@ -6,11 +6,11 @@ namespace WebKit.Core;
 
 public sealed class WebKitBuilder : IWebKitBuilder
 {
-    public async Task<Result> BuildAsync(string path, bool enableDebugging)
+    public async Task<Result> BuildAsync(string path, bool isDebugBuild)
     {
         ArgumentNullException.ThrowIfNull(path);
 
-        var outputPath = Path.Combine(path, Paths.BuildFolder);
+        var outputPath = Path.Combine(path, Paths.GetProperBuildFolder(isDebugBuild: isDebugBuild));
 
         var resourceProvider = new ResourceProvider { BasePath = path };
 
@@ -21,7 +21,7 @@ public sealed class WebKitBuilder : IWebKitBuilder
             return result.WithErrors($"Build failed.");
         }
 
-        if (enableDebugging)
+        if (isDebugBuild)
         {
             resourceProvider.WebKitConfig.Properties.Add("Debugger", Scripts.Debugger);
         }

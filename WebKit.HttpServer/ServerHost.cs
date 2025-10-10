@@ -20,7 +20,7 @@ public sealed class ServerHost(string rootPath, string host, int port)
         if (string.IsNullOrWhiteSpace(path))
             throw new ArgumentException("Path cannot be null or whitespace.", nameof(path));
 
-        if (!path.StartsWith("/"))
+        if (!path.StartsWith('/'))
             path = "/" + path;
 
         _webSocketHandlers[path] = handler;

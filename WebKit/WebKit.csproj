@@ -43,10 +43,20 @@
           webkit bosonware website site-generator static-site markdown html builder cli dotnet-tool cross-platform jamstack web-development content-generator markdown-to-html documentation-generator static-website blog-engine lightweight fast
       </PackageTags>
 
-      <Version>1.2.0</Version>
+      <Version>1.3.0</Version>
       <PackageReleaseNotes>
-      Support for XDSL (Extensible Data Structure Language) has been added to improve configuration flexibility and usability:
-        - Compatible with `webkit.xdsl` or `webkit.json`.
+          Improvements:
+          - Added conditional properties. Note: Supported only in `webkit.xdsl` configuration files.
+          - Improved Markdown to HTML conversion.
+          - Enhanced static site generation performance.
+          - Added new CLI options for customization.
+          - Fixed minor bugs and improved documentation.
+
+          Breaking Changes:
+          - Changed default build directory structure.
+          - Changed `hot-reload` behavior: now requires `--watch` flag to enable live reloading.
+
+          For more details, join the BosonWare Telegram community: https://t.me/BosonWare
       </PackageReleaseNotes>
   </PropertyGroup>
     

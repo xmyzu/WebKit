@@ -76,6 +76,18 @@ public sealed class WebKitConfig
                 
                 foreach (var property in properties.Where(x => x is { NodeType: XdslNodeType.Element, IsSpecialName: false }))
                 {
+                    if (property.TryGetAttribute("Condition", out var condition)) {
+                        if (Enum.TryParse<EnvironmentMode>(condition.Value, out var mode)) {
+                            if (mode != WebEnv.Mode)
+                                continue;
+                        }
+                        else {
+                            SmartConsole.LogWarning($"Invalid Condition {condition.Value}. Expected `Development` or `Production`.");
+                            
+                            continue;
+                        }
+                    }
+                    
                     config.Properties.Add(property.Name, property.Text ?? string.Empty);
                 }
 

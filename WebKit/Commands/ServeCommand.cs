@@ -4,6 +4,7 @@ using WebKit.Core;
 using WebKit.HttpServer;
 using System.Net.WebSockets;
 using System.Collections.Concurrent;
+using WebKit.Core.Resources;
 
 namespace WebKit.Commands;
 
@@ -17,17 +18,31 @@ public sealed class ServeCommand
         [Option('h')] string host = "localhost",
         [Option('p')] int port = 3000,
         [Option(Description = "Skip build process.")] bool noBuild = false,
-        [Option(Description = "Enable hot-reload with live refresh.")] bool watch = true)
+        [Option(Description = "Rebuilds the project.")] bool clean = false,
+        [Option(Description = "Enable hot-reload with live refresh.")] bool watch = false)
     {
+        WebEnv.SetMode(debug: watch);
+
+        if (noBuild && clean) {
+            SmartConsole.LogWarning("Option `--clean` was used, ignoring `--no-build`.");
+            
+            noBuild = false;
+        }
+
+        if (clean) {
+            CleanCommand.Clean(env: WebEnv.Mode);
+        }
+        
         if (!noBuild)
         {
             var exitCode = await BuildCommand.Build(debug: watch);
+            
             if (exitCode != 0)
                 return;
         }
 
         var serverHost = new ServerHost(
-            Path.Combine(Environment.CurrentDirectory, Paths.BuildFolder),
+            Path.Combine(Environment.CurrentDirectory, Paths.GetProperBuildFolder(isDebugBuild: watch)),
             host,
             port);
 
@@ -65,7 +80,9 @@ public sealed class ServeCommand
 
             watcher.Changed += (_, args) =>
             {
-                if (args.FullPath.Contains(Path.Combine(Environment.CurrentDirectory, Paths.BuildFolder)))
+                if (args.FullPath.Contains(Path.Combine(
+                        Environment.CurrentDirectory, 
+                        Paths.GetProperBuildFolder(WebEnv.Mode))))
                     return;
 
                 lock (rebuildLock)

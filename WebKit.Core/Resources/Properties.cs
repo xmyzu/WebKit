@@ -2,6 +2,7 @@
 using BosonWare;
 using BosonWare.TUI;
 using Markdig;
+using WebKit.Core.Rendering;
 
 namespace WebKit.Core.Resources;
 
@@ -51,13 +52,13 @@ public sealed class Properties : Dictionary<string, string>
 
     public Properties Clone() => new(this) { ResourceProvider = ResourceProvider };
 
-    private static async Task<string?> GetSharedFileCachedAsync(string path) =>
+    private async Task<string?> GetSharedFileCachedAsync(string path) =>
         await Cache<string?>.GetAsync(
             path, 
             async () => await TryGetSharedFile(path), 
             TimeSpan.FromSeconds(1));
 
-    private static async Task<string?> TryGetSharedFile(string path)
+    private async Task<string?> TryGetSharedFile(string path)
     {
         var fileToRead = Path.GetExtension(path) switch
         {
@@ -71,9 +72,9 @@ public sealed class Properties : Dictionary<string, string>
 
         var content = await File.ReadAllTextAsync(fileToRead);
         
-        return fileToRead.EndsWith(".md", StringComparison.OrdinalIgnoreCase)
+        return await CommonRenderer.EvalExpressions(fileToRead.EndsWith(".md", StringComparison.OrdinalIgnoreCase)
             ? Markdown.ToHtml(content)
-            : content;
+            : content, this);
     }
 
     private static string LogMissing(string path, string fallback)

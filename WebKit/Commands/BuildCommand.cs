@@ -1,6 +1,7 @@
 ﻿using BosonWare.TUI;
 using Cocona;
 using WebKit.Core;
+using WebKit.Core.Resources;
 
 namespace WebKit.Commands;
 
@@ -10,6 +11,8 @@ public sealed class BuildCommand
     [Command("build", Description = "Builds a static Web application")]
     public static async Task<int> Build(bool debug = false)
     {
+        WebEnv.SetMode(debug);
+
         var builder = new WebKitBuilder();
 
         var startTime = DateTime.UtcNow;
